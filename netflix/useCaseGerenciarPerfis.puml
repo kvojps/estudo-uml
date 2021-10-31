@@ -1,0 +1,21 @@
+@startuml Gerenciar perfis
+actor Usuario
+actor Sistema
+
+(Usuario) --> (Adicionar perfil)
+
+(Adicionar perfil) <.. (Salvar alterações) :Extends
+(Adicionar perfil) ..> (Adicionar nome) :Include
+(Adicionar perfil) ..> (Verificar faixa etária) :Include
+(Adicionar perfil) .> (Personalizar perfil) :Include
+
+(Usuario) --> (Gerenciar perfil)
+
+(Gerenciar perfil) <.. (Salvar alterações) :Extends
+(Gerenciar perfil) <.. (Alterar nome) :Extends
+(Gerenciar perfil) <.. (Alterar idioma) :Extends
+(Gerenciar perfil) <. (Configurar classificação etária) :Extends
+(Gerenciar perfil) <.. (Controlar Início automático) :Extends
+
+(Sistema) --> (Salvar alterações)
+@enduml

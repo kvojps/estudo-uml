@@ -1,0 +1,17 @@
+@startuml jogo da memoria
+actor Sistema
+actor Jogador
+
+(Sistema) --> (Embaralhar cartas) 
+(Sistema) --> (Verificar cartas)
+(Sistema) --> (Atualizar tabuleiro) 
+(Verificar cartas) ..> (Calcular pontuação) :include
+
+(Jogador) --> (Iniciar Jogo)
+(Jogador) --> (Inserir nome)
+(Jogador) --> (Escolher cartas)
+
+(Iniciar Jogo) ..> (Embaralhar cartas) : Include
+(Escolher cartas) ..> (Verificar cartas) : Include
+
+@enduml
