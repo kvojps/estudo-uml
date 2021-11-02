@@ -1,0 +1,13 @@
+@startuml Minha lista
+actor Usuario
+actor Sistema
+
+(Usuario) --> (Adicionar a lista de favoritos)
+(Usuario) --> (Remover da lista de favoritos)
+(Usuario) --> (Navegar para lista de favoritos)
+
+(Sistema) --> (Salvar alterações)
+(Adicionar a lista de favoritos) ..> (Salvar alterações) :Include
+(Remover da lista de favoritos) ..> (Salvar alterações) :Include
+
+@enduml

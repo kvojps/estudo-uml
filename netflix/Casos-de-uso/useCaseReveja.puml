@@ -1,0 +1,12 @@
+@startuml Reveja
+actor Usuario
+actor Sistema
+
+(Usuario) --> (Navegar para reveja)
+(Usuario) --> (Acessar midias visualizadas)
+
+(Sistema) -> (Buscar mídias visualizadas)
+
+(Acessar midias visualizadas) .> (Buscar mídias visualizadas) :Include
+
+@enduml

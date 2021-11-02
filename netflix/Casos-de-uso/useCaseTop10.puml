@@ -1,0 +1,12 @@
+@startuml Top 10
+actor Usuario
+actor Sistema
+
+(Usuario) --> (Ver top 10)
+
+(Sistema) --> (Rankear top 10 por regiao)
+(Sistema) --> (Verificar região)
+(Sistema) --> (Carregar no layout)
+
+(Ver top 10) ..> (Carregar no layout) : Include
+@enduml

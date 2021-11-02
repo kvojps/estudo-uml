@@ -1,0 +1,15 @@
+@startuml Seção séries/filmes
+actor Usuario
+actor Sistema
+
+(Usuario) --> (Acessar séries/filmes)
+(Usuario) <.. (Ordenar mídia) : Extends
+(Ordenar mídia) <.. (Ordenar por ano de estreia) : Extends
+(Ordenar mídia) <.. (Ordenar de A-Z) : Extends
+(Ordenar mídia) <.. (Ordenar de Z-A) : Extends
+(Acessar séries/filmes) <.. (Selecionar genêro) :Extends
+
+(Sistema) --> (Atualizar aplicação)
+(Acessar séries/filmes) ..> (Atualizar aplicação) :Include
+(Ordenar mídia) ..> (Atualizar aplicação) :Include
+@enduml

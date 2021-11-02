@@ -1,0 +1,14 @@
+@startuml modo infantil
+actor Usuario
+actor Sistema
+
+(Usuario) --> (Entrar no modo Infantil)
+(Usuario) --> (Navegar no modo infantil)
+(Entrar no modo Infantil) <.. (Navegar por personagens) :Extends
+(Navegar por personagens) <.. (Assistir conteudo relacionado) :Extends
+
+(Sistema) --> (Alterar classificação etária)
+
+(Entrar no modo Infantil) ..> (Alterar classificação etária) :Include
+
+@enduml

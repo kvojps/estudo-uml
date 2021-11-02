@@ -1,0 +1,9 @@
+@startuml Seção bombando
+actor Usuario
+
+(Usuario) --> (Acessar seção bombando)
+(Acessar seção bombando) <.. (Acessar novidades da netflix) :Extends
+(Acessar seção bombando) <.. (Acessar estreias da semana) :Extends
+(Acessar seção bombando) <.. (Acessar estreias da próxima semana) :Extends
+(Acessar seção bombando) <.. (Mostrar prévias de lançamento) :Extends
+@enduml

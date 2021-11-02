@@ -13,7 +13,7 @@ actor Sistema
 
 (Gerenciar perfil) <.. (Salvar alterações) :Extends
 (Gerenciar perfil) <.. (Alterar nome) :Extends
-(Gerenciar perfil) <.. (Alterar idioma) :Extends
+(Gerenciar perfil) <.. (Selecionar idioma) :Extends
 (Gerenciar perfil) <. (Configurar classificação etária) :Extends
 (Gerenciar perfil) <.. (Controlar Início automático) :Extends
 

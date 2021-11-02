@@ -1,0 +1,18 @@
+@startuml Seção bombando
+actor Usuario
+actor Sistema
+
+(Usuario) --> (Interromper midia)
+(Usuario) --> (Navegar por midias não finalizadas)
+note "Episódio de uma série ou\n um filme é interrompido\n antes de seu fim." as N
+N .. (Interromper midia)
+
+(Sistema) --> (Processar tempo de duração atual)
+(Sistema) --> (Salvar alterações)
+(Sistema) --> (Mostrar midias não finalizadas)
+
+(Processar tempo de duração atual) ..> (Salvar alterações) :Include
+
+(Interromper midia) ..> (Processar tempo de duração atual) :Include
+
+@enduml
