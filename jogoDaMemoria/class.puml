@@ -1,0 +1,32 @@
+@startuml jogoMemoria
+title <b> Jogo da memória </b>
+
+class Jogador { 
+    + nome String
+    - score Int 
+    + getScore() : Int
+}
+
+class Carta {
+    - id Int
+    - visivel Bool
+}
+
+class Tabuleiro {
+    - cartas List<Carta>
+    + embaralharCartas() : List<Carta>
+}
+
+class Jogo {
+    - jogador Jogador
+    - tabuleiro Tabuleiro
+    - rankingTop1 Jogador
+    + verificarCartas() : Bool
+    + atualizarTabuleiro() 
+}
+
+Tabuleiro --> Carta
+Jogo --* Jogador : Joga
+Jogo *-- Tabuleiro :Contém
+
+@enduml
