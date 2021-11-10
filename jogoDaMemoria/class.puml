@@ -1,32 +1,82 @@
-@startuml jogoMemoria
-title <b> Jogo da memória </b>
 
-class Jogador { 
-    + nome String
-    - score Int 
-    + getScore() : Int
+@startuml Jogo
+
+title <b>Solução da questão 10 do EXEC-03: JOGO DA MEMÓRIA</b>
+
+package br.upe.esw.psw.diagramas.jogoMemoria {
+
+    class Record {
+        - jogador: Jogador
+        - pontuacao : Integer
+        - Record Record()
+        + Record Record(Jogador jogador, Integer pontuacao)
+        + void setJogador(Jogador jogador)
+        + Jogador getJogador()
+        + void setPontuacao(Integer pontuacao)
+        - Integer getPontuacao()
+    }
+
+    class Jogador {
+        - nome: String
+        + String getNome()
+        + void setNome(String nome)
+        - Jogador Jogador()
+        + Jogador Jogador(String nome)
+    }
+
+    class Tabuleiro {    
+        - jogador: Jogador
+        - cartas:HashMap<Integer, Carta>()
+        - jogada1: Integer
+        - jogada2: Integer    
+        - pontuacaoAcumulada: Integer
+        - record: Record
+        - erros: Integer
+        - void exibirCartasTabuleiro()
+        - void esconderCartasTabuleiro()
+        - List<Carta> buscarCartas(Tema tema)
+        - void inicializarTabuleiro(Tema tema)
+        - Carta exibirCartaTabuleiro(Integer posicao)
+        - Carta esconderCartaTabuleiro(Integer posicao)
+        - Integer realizarJogada(Carta carta1, Carta carta2)
+        - Integer calcularPontuacaoJogada(Carta carta1, Carta carta2)
+        - void atualizarPontuacaoNoTabuleiro()
+        - Tabuleiro Tabuleiro()
+        + Tabuleiro Tabuleiro(Tema tema)
+        + void iniciarPartida(Tema tema)
+        + Carta virarCarta(Integer posicao)
+        + Carta desvirarCarta(Integer posicao)
+        + void finalizarPartida()     
+        + Integer recuperarMaiorPontuacao()
+        + void registrarRecordPontuacao(Integer pontuacao)
+    }
+
+    note right of Tabuleiro::"realizarJogada(Carta carta1, Carta carta2)"
+        {Um acerto equivale a +100 pts. A cada erro descresce -5 pts da pontuacao de uma carta}
+    end note
+
+    class Carta {
+        - imagem: byte[]
+        - tema: Tema    
+        - Carta Carta()
+        + Carta Carta(byte[] imagem, Tema tema)
+        + byte[] getFigura()
+        + void setFigura(byte[] figura)
+        + void setTema(Tema tema)
+        + Tema getTema()
+        + boolean equals(Carta carta)
+    }
+
+    enum Tema {
+        PAISAGEM, ANIMAIS, RELEVO
+        + boolean equals(Tema)
+    }
 }
 
-class Carta {
-    - id Int
-    - visivel Bool
-}
-
-class Tabuleiro {
-    - cartas List<Carta>
-    + embaralharCartas() : List<Carta>
-}
-
-class Jogo {
-    - jogador Jogador
-    - tabuleiro Tabuleiro
-    - rankingTop1 Jogador
-    + verificarCartas() : Bool
-    + atualizarTabuleiro() 
-}
-
-Tabuleiro --> Carta
-Jogo --* Jogador : Joga
-Jogo *-- Tabuleiro :Contém
+Record -- Tabuleiro
+Jogador -- Tabuleiro
+Tabuleiro -- Carta
+Carta -- Tema
 
 @enduml
+

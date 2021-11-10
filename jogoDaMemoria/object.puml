@@ -1,0 +1,62 @@
+@startuml objetos
+allowmixing
+'left to right direction
+
+object objJogador {
+    nome = Fulano
+}
+
+object objRecord {
+    jogador = objJogador
+    pontuacao = 1200
+}
+
+object objTabuleiro{
+    cartas = HashMap<Integer,Carta>()
+    jogada1 = 1
+    jogada2 = 0  
+    pontuacaoAcumulada = 100
+    erros = 1
+}
+
+object objCartaCampo{
+    imagem  = Campo
+    tema    = PAISAGEM
+}
+
+object objCartaPantanal{
+    imagem  = Pantanal
+    tema    = PAISAGEM
+}
+
+object objCartaSertao{
+    imagem  = Sertão
+    tema    = PAISAGEM
+}
+
+object objCartaAgreste{
+    imagem  = Agreste
+    tema    = PAISAGEM
+}
+
+object objCartaSerrado{
+    imagem  = Serrado
+    tema    = PAISAGEM
+}
+
+object objCartaLitoral{
+    imagem  = Litoral
+    tema    = PAISAGEM
+}
+
+objRecord -up- objTabuleiro
+objRecord -- objJogador
+objJogador -up- objTabuleiro
+objCartaCampo -- objTabuleiro
+objCartaPantanal  -- objTabuleiro
+objCartaSertao  -- objTabuleiro
+objCartaAgreste  -- objTabuleiro
+objCartaSerrado  -- objTabuleiro
+objCartaLitoral  -- objTabuleiro
+
+@enduml
