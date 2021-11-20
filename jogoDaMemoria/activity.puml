@@ -1,0 +1,23 @@
+@startuml atividades
+start
+:Inserir nome;
+:Estabelecer totalAcertos = 100;
+
+repeat :Escolher cartas;
+  :Virar cartas;
+  if (Cartas são iguais ?) then (Sim)
+    :Adicionar 5 a totalAcertos;
+    :Atualizar tabuleiro;
+  else (Não)
+    :Retirar 5 a totalAcertos;
+    :Desvirar cartas;
+  endif
+backward:Não;
+repeat while (Todas cartas estão viradas ou totalAcertos<10 ?)
+:Atribuir pontuação;
+if (É a maior pontuação do jogo) then (Sim)
+    :Estabelecer recorde;
+    stop
+else (Não)
+    stop
+@enduml

@@ -1,0 +1,54 @@
+@startuml state
+
+state IniciandoJogo {
+    state IniciandoJogo : entry/iniciarJogo()
+    state IniciandoJogo : do/inserirNome()
+    
+}
+
+IniciandoJogo --> EmPartida
+
+state EmPartida {
+    state EscolhendoCartas {
+        state EscolhendoCartas : entry/escolherCartas()
+        state EscolhendoCartas : do/verificarCartas()
+        state EscolhendoCartas : do/virarCartas()
+    }
+
+    state DesvirandoCartas {
+        state DesvirandoCartas : do/desvirarCartas()
+    }
+
+    state AtribuindoPontuação {
+        state AtribuindoPontuação : entry/calcularPontuacaoJogada()
+        state AtribuindoPontuação : entry/calcularTotalAcertos()
+        state AtribuindoPontuação : do/atualizarPontuaçãoTabuleiro()
+    }
+
+    state c <<choice>>
+    EscolhendoCartas --> c
+    c --> DesvirandoCartas : [Cartas não são iguais]
+    c --> AtribuindoPontuação 
+    DesvirandoCartas --> AtribuindoPontuação
+    AtribuindoPontuação --> [*]
+}
+
+EmPartida --> VerificandoRank : [Todas as cartas viradas para cima || total de acertos < 10]
+
+state VerificandoRank {
+    state VerificandoRank : entry/recuperarMaiorPontuacaoJogo()
+    state VerificandoRank : do/compararPontuacoes()
+}
+
+state EstabelecendoRecorde {
+
+}
+
+state d <<choice>>
+VerificandoRank --> d
+d --> EstabelecendoRecorde : [A pontuação atual é o novo recorde]
+d --> [*]
+
+EstabelecendoRecorde --> [*]
+@enduml
+
