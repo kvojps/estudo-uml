@@ -1,0 +1,13 @@
+@startuml modo infantil
+start
+:Entrar no modo infantil;
+:Alterar classificação etária dos conteúdos;
+fork
+    :Navegar por personagens;
+fork again
+    :Navegar no modo infantil;
+end fork
+:Selecionar midia;
+:Assistir conteúdo relacionado;
+stop
+@enduml

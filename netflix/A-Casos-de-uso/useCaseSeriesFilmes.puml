@@ -3,7 +3,7 @@ actor Usuario
 actor Sistema
 
 (Usuario) --> (Acessar séries/filmes)
-(Usuario) <.. (Ordenar mídia) : Extends
+(Usuario) --> (Ordenar mídia)
 (Ordenar mídia) <.. (Ordenar por ano de estreia) : Extends
 (Ordenar mídia) <.. (Ordenar de A-Z) : Extends
 (Ordenar mídia) <.. (Ordenar de Z-A) : Extends

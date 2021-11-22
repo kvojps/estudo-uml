@@ -1,0 +1,10 @@
+@startuml reveja
+:Navegar para reveja;
+if(Acessar mídia já visualizadas) then (Sim)
+    :Buscar mídias;
+    :Mostrar mídias;
+else
+    stop
+endif
+stop
+@enduml

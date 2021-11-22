@@ -1,0 +1,12 @@
+@startuml minha Lista
+start
+if (Adicionar a lista de favoritos) then (Sim)
+  :Adicionar mídia na lista de favoritos;
+elseif (Remover da lista de favoritos) then (Sim)
+  :Remover mídia na lista de favoritos;
+else (nenhuma das opções)
+  stop
+endif
+:Atualizar lista de favoritos;
+stop
+@enduml

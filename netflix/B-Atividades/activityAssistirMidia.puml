@@ -1,0 +1,23 @@
+@startuml modo infantil
+start
+:Selecionar mídia;
+fork
+    :Assistir;
+    fork
+        :Acionar play;
+    fork again
+        :Acionar pause;
+    end fork
+fork again
+    :Navegar no modo infantil;
+fork again
+    :Classificar;
+fork again
+    :Remover da fileira;
+fork again
+    :Carregar informações;
+    :Ver informações;
+end fork
+:Atualizar informações;
+stop
+@enduml

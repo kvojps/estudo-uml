@@ -1,0 +1,15 @@
+@startuml bombando
+start
+:Acessar seção bombando;
+if (Acessar novidades da netflix) then (Sim)
+  :Navegar por novidades;
+elseif (Acessar estreias da semana) then (Sim)
+  :Navegar por estreias da semana;
+elseif (Acessar lançamentos futuros) then (Sim)
+  :Navegar por lançamentos;
+  :Mostrar prévias;
+else (nenhuma das opções)
+  stop
+endif
+stop
+@enduml

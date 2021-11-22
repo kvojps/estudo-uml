@@ -1,0 +1,21 @@
+@startuml series/filmes
+start
+if (Acessar séries filmes) then (Sim)
+  :Selecionar gênero;
+  :Selecionar mídia;
+elseif (Ordenar mídia) then (Sim)
+  fork
+    :Por ano de estreia;
+  fork again
+    :De A-Z;
+  fork again
+    :De Z-A;
+  fork again
+  end fork
+  :Finalizar ordenação;
+else (nenhuma das anteriores)
+  stop
+endif
+:Atualizar aplicação;
+stop
+@enduml

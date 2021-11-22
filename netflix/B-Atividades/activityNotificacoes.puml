@@ -1,0 +1,17 @@
+@startuml notificacoes
+start
+:Acessar Lembretes;
+fork
+    :Acessar trailer;
+fork again
+    :Acessar página do conteúdo;
+fork again
+    :Acessar conteúdo de "continue assistindo";
+end fork
+if (Continuar assistindo?)
+    :Acessar conteúdo selecionado;
+else 
+    :fechar pagina;
+endif
+stop
+@enduml

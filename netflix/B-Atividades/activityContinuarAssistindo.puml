@@ -1,0 +1,13 @@
+@startuml Continuar assistindo
+start
+if (Navegar por mídias não finalizadas) then (Sim)
+  :mostrar mídias não finalizadas;
+  :acessar mídias;
+elseif (interromper mídia) then (Sim)
+  :Processar tempo de duração atual;
+  :Salvar alterações;
+else (nenhuma das opções)
+  stop
+endif
+stop
+@enduml
