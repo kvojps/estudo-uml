@@ -2,9 +2,9 @@
 actor Usuario
 actor Sistema 
 (Usuario) --> (Selecionar midia)
-(Selecionar midia) <.. (Assistir mídia) :Extends
+(Selecionar midia) <.. (Assistir) :Extends
 (Selecionar midia) <.. (Adicionar à lista) :Extends
-(Selecionar midia) <.. (Classificar mídia) :Extends
+(Selecionar midia) <.. (Classificar) :Extends
 (Selecionar midia) <.. (Remover da fileira) :Extends
 (Selecionar midia) <.. (Ver informações) :Extends
 

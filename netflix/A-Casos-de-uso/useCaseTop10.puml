@@ -1,0 +1,18 @@
+@startuml Top 10
+actor Usuario
+actor Sistema
+
+(Usuario) --> (top 10)
+
+(Sistema) --> (Rankear top 10)
+
+(top 10) ..> (Rankear top 10) : Include
+(Rankear top 10) ..> (Identificar títulos) : Include
+(Rankear top 10) ..> (Carregar top 10) :Include
+
+note "Identifica os títulos mais\n vistos pelo usuário" as n0
+n0 .. (Identificar títulos)
+
+note "Baseado nos títulos mais vistos\n é feito uma comparação com as\n streams mais vistas da plataforma\n daquele tipo." as n1
+n1 .. (Carregar top 10)
+@enduml

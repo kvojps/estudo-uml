@@ -1,0 +1,30 @@
+@startuml Gerenciar perfis
+start
+if (Adicionar perfil) then (Sim)
+  :Inserir nome;
+  :Verificar classificação etária;
+elseif (Editar perfil) then (Sim)
+  fork
+    :Alterar nome;
+  fork again
+    :Alterar idioma;
+  fork again
+    :Alterar classificação etária;
+  fork again
+    :Configurar início automático;
+  end fork
+  :Finalizar modificações;
+elseif (Excluir perfil) then (Sim)
+  :Excluir dados;
+  :Salvar modificação;
+  stop
+else (nenhuma das anteriores)
+  stop
+endif
+if(Perfil infantil ?) then (Sim)
+  :Mudar para perfil infantil;
+else
+  :Continuar com o perfil;
+endif
+:Salvar alterações;
+@enduml

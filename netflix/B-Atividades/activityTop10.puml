@@ -1,0 +1,14 @@
+@startuml Top 10 
+start
+:Acessar Top 10;
+:Rankear Top 10;
+fork
+  :Identificar títulos mais vistos pelo usuário;
+fork again
+  :Identificar títulos mais vistos na plataforma;
+end fork
+:Comparar títulos;
+:Filtrar títulos;
+:Recomendar top 10;
+stop
+@enduml

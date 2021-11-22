@@ -1,0 +1,9 @@
+@startuml casos de uso lembretes
+actor Usuario
+actor Sistema
+(Usuario) --> (Navegar em lembretes)
+(Navegar em lembretes) <.. (Acessar conteudo) : Extends
+
+(Sistema) --> (Carregar preferências de usuário)
+(Navegar em lembretes) ..> (Carregar preferências de usuário) : Include
+@enduml
