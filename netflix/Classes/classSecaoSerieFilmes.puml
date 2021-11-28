@@ -1,0 +1,44 @@
+@startuml Series/Filmes
+
+class Usuario {
+    - nome: String
+    - classificacaoEtaria : Integer
+    - infantil : Bool
+    - MidiasFavoritas: Midia[]
+    - Usuario Usuario(String nome, Integer classificacaoEtaria)
+    + void setNome(String nome)
+    + void setClassificacaoEtaria(Int classificacaoEtaria)
+    + Secao navegarParaSecao (Secao secao)
+}
+
+
+class Secao {
+    - colecaoMidias: HashMap<Integer, Midia>()
+    + void ordenarMidiasAz(HashMap<Integer, Midia> colecaoMidias)
+    + void ordenarMidiasZa(HashMap<Integer, Midia> colecaoMidias)
+    + void ordenarMidiasEstreia(HashMap<Integer, Midia> colecaoMidias)
+    + HashMap<Integer, Midia> listarMidias(HashMap<Integer, Midia> colecaoMidias)
+
+}
+
+class Midia {
+    - video: byte[]
+    - título: String
+    - genero : Genero
+    + Midia Midia(byte[] video, Genero genero)
+    + void setVideo(byte[] video)
+    + void setTitulo(String string)
+    + void setGenero(Genero genero)
+}
+
+enum Genero {
+    ACAO, AVENTURA, CLASSICOS, CULT, COMEDIA, ROMANCE,
+    SCI-FI, FANTASIA, SUSPENSE, ANIME, FAMILIA, MUSICA
+}
+
+Usuario -- Secao
+Secao -- Midia
+Midia -- Genero
+
+
+@enduml

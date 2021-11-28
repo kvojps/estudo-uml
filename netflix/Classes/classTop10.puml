@@ -1,0 +1,45 @@
+@startuml Top10
+
+class Usuario {
+    - nome: String
+    - classificacaoEtaria : Integer
+    - infantil : Bool
+    - Usuario Usuario(String nome, Integer classificacaoEtaria)
+    + void setNome(String nome)
+    + void setClassificacaoEtaria(Int classificacaoEtaria)
+    + Secao navegarParaBombando (SecaoBombando secao)
+}
+
+
+class Top10 {
+    - colecaoMidias: HashMap<Integer, Midia>()
+    + HashMap<Integer, Midia> rankearTop10(HashMap<Integer, Midia> colecaoMidias)
+    + HashMap<Integer, Midia> listarTop10(HashMap<Integer, Midia> colecaoMidias)
+
+}
+
+class Midia {
+    - video: byte[]
+    - título: String
+    - genero : Genero
+    - visualizacoes : Int
+    - reacoes : Int
+    - relevancia : Int
+    - publicoInfantil : Bool
+    + Midia Midia(byte[] video, Genero genero)
+    + void setVideo(byte[] video)
+    + void setTitulo(String string)
+    + void setGenero(Genero genero)
+    + Int calcularRelevancia (Int visualizacoes, Int reacoes, Bool publicoInfantil)
+}
+
+enum Genero {
+    ACAO, AVENTURA, CLASSICOS, CULT, COMEDIA, ROMANCE,
+    SCI-FI, FANTASIA, SUSPENSE, ANIME, FAMILIA, MUSICA
+}
+
+Usuario -- Top10 
+Top10  -- Midia
+Midia -- Genero
+
+@enduml

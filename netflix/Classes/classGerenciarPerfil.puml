@@ -1,0 +1,27 @@
+@startuml Gerenciar perfil
+
+abstract class Usuario {
+    - nome: String
+    - idioma: String
+    - classificacaoEtaria : Integer
+    - inicioAutomatico = True
+    - Usuario Usuario(String nome, String idioma, Integer classificacaoEtaria)
+    + HashMap<Integer, Midia>  gerarConteudo()
+    + void setNome (String nome)
+    + void setIdioma (String idioma)
+    + void setClassificacaoEtaria (Integer classificacaoEtaria)
+    + void setClassificacaoEtaria (Bool inicioAutomatico)
+}
+
+class UsuarioGeral {
+    + override HashMap<Integer, Midia> gerarConteudo()
+}
+
+class UsuarioInfantil {
+    + override HashMap<Integer, Midia>  gerarConteudo()
+}
+
+Usuario -- UsuarioGeral
+Usuario -- UsuarioInfantil
+
+@enduml

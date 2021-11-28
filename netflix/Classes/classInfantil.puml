@@ -1,0 +1,57 @@
+@startuml Gerenciar perfil
+
+abstract class Usuario {
+    - nome: String
+    - idioma: String
+    - classificacaoEtaria : Integer
+    - inicioAutomatico = True
+    - Usuario Usuario(String nome, String idioma, Integer classificacaoEtaria)
+    + HashMap<Integer, Midia>  gerarConteudo()
+    + void setNome (String nome)
+    + void setIdioma (String idioma)
+    + void setClassificacaoEtaria (Integer classificacaoEtaria)
+    + void setClassificacaoEtaria (Bool inicioAutomatico)
+}
+
+class UsuarioGeral {
+    + override HashMap<Integer, Midia> gerarConteudo()
+}
+
+class UsuarioInfantil {
+    + override HashMap<Integer, Midia>  gerarConteudo()
+}
+
+class SecaoInfantil {
+    - colecaoMidias: HashMap<Integer, Midia>()
+    + HashMap<Integer, Midia> listarMidiasInfantis(HashMap<Integer, Midia> colecaoMidias)
+
+}
+
+class MidiaInfantil {
+    - video: byte[]
+    - título: String
+    - genero : Genero
+    - visualizacoes : Int
+    - reacoes : Int
+    - relevancia : Int
+    - publicoInfantil : Bool
+    - classificacaoEtaria : 12
+    + Midia Midia(byte[] video, Genero genero)
+    + void setVideo(byte[] video)
+    + void setTitulo(String string)
+    + void setGenero(Genero genero)
+    + Int calcularRelevancia (Int visualizacoes, Int reacoes, Bool publicoInfantil)
+}
+
+enum Genero {
+    ACAO, AVENTURA, CLASSICOS, CULT, COMEDIA, ROMANCE,
+    SCI-FI, FANTASIA, SUSPENSE, ANIME, FAMILIA, MUSICA
+}
+
+Usuario -- UsuarioGeral
+Usuario -- UsuarioInfantil
+UsuarioInfantil --SecaoInfantil
+SecaoInfantil -- MidiaInfantil
+MidiaInfantil -- Genero
+
+@enduml
