@@ -1,4 +1,4 @@
-@startuml series/filmes
+@startuml secao
 object objUsuario {
     nome = fulano
     classificaoEtaria = 18

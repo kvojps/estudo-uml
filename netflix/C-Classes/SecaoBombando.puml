@@ -1,0 +1,17 @@
+@startuml Secoes
+
+class SecaoMidia {
+    - colecaoMidias: HashMap<Integer, Midia>()
+    + void ordenarMidiasAz(HashMap<Integer, Midia> colecaoMidias)
+    + void ordenarMidiasZa(HashMap<Integer, Midia> colecaoMidias)
+    + void ordenarMidiasEstreia(HashMap<Integer, Midia> colecaoMidias)
+    + HashMap<Integer, Midia> listarMidias(HashMap<Integer, Midia> colecaoMidias)
+}
+
+class SecaoBombando {
+    + HashMap<Integer, Midia> listarMidiasRelevantes(HashMap<Integer, Midia> colecaoMidias, Midia.relevancia)
+    + HashMap<Integer, Midia> listarTop10(HashMap<Integer, Midia> colecaoMidias)
+}
+
+SecaoMidia <|-- SecaoBombando
+@enduml

@@ -1,0 +1,40 @@
+@startuml Midia
+class Midia {
+    - video: byte[]
+    - título: String
+    - genero : Genero
+    - estado : Estado
+    - qtdVisualizacoes = 0
+    - qtdReacoes = 0
+    + Midia Midia(byte[] video, String titulo, Genero genero, Estado estado)
+    + void setVideo(byte[] video)
+    + void setTitulo(String titulo)
+    + void setGenero(Genero genero)
+    + void setEstado(Estado estado)
+    + void setQtdVisualizacoes(Int qtdVisualizacoes)
+    + void setQtdReacoes(Int qtdReacoes)
+    + Midia play(byte[] video, Estado estado)
+    + Midia pause(byte[] video, Estado estado)
+    + Int calcularRelevancia (Int visualizacoes, Int reacoes)
+}
+
+class MidiaInfantil { 
+    - classificacaoEtaria : Int
+    + void setClassificacaoEtaria(Int classificacaoEtaria)
+    + Int calcularRelevancia (Int visualizacoes, Int reacoes, Int classificacaoEtaria)
+}
+
+enum Genero {
+    ACAO, AVENTURA, CLASSICOS, CULT, COMEDIA, ROMANCE,
+    SCI-FI, FANTASIA, SUSPENSE, ANIME, FAMILIA, MUSICA
+}
+
+enum Estado {
+    NAO-INICIADO, ANDAMENTO, FINALIZADO
+}
+
+Midia <|-- MidiaInfantil
+Midia -- Genero
+Midia -- Estado
+
+@enduml

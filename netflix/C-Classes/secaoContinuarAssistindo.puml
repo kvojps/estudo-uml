@@ -1,0 +1,18 @@
+@startuml Secoes
+
+class SecaoMidia {
+    - colecaoMidias: HashMap<Integer, Midia>()
+    + void ordenarMidiasAz(HashMap<Integer, Midia> colecaoMidias)
+    + void ordenarMidiasZa(HashMap<Integer, Midia> colecaoMidias)
+    + void ordenarMidiasEstreia(HashMap<Integer, Midia> colecaoMidias)
+    + HashMap<Integer, Midia> listarMidias(HashMap<Integer, Midia> colecaoMidias)
+}
+
+class SecaoContinuarAssistindo {
+    - colecaoMidias: HashMap<Midia, Estado.ANDAMENTO>
+    + Midia continuarAssistindo(HashMap<Midia, Estado.ANDAMENTO> colecaoMidias, id Integer)
+    
+}
+
+SecaoMidia <|-- SecaoContinuarAssistindo
+@enduml

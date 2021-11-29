@@ -11,6 +11,9 @@ abstract class Usuario {
     + void setIdioma (String idioma)
     + void setClassificacaoEtaria (Integer classificacaoEtaria)
     + void setClassificacaoEtaria (Bool inicioAutomatico)
+    + Secao navegarParacontinuarAssistindo (SecaoContinuarAssistindo secao)
+    + Secao navegarParaBombando (SecaoBombando secao)
+    + Secao navegarParaMinhaLista (SecaoMinhaLista secao)
 }
 
 class UsuarioGeral {
@@ -19,6 +22,7 @@ class UsuarioGeral {
 
 class UsuarioInfantil {
     + override HashMap<Integer, Midia>  gerarConteudo()
+    + Secao navegarParaSecaoInfantil (SecaoInfantil secao)
 }
 
 Usuario -- UsuarioGeral

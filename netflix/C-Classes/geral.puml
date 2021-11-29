@@ -1,0 +1,12 @@
+@startuml geral
+class Usuario {}
+class Secao {}
+class Midia {}
+enum Estado {}
+enum Genero {}
+
+Usuario -- Secao
+Secao -- Midia
+Midia -- Estado
+Midia -- Genero
+@enduml
