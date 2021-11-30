@@ -1,0 +1,20 @@
+@startuml lembretes
+state AssistindoConteudo {
+    state AssistindoConteudo : entry/acessarConteudo()
+}
+
+state MostrandoLembrete {
+    state MostrandoLembrete : entry/MostrarTopicos()
+}
+
+state AcessandoPreview {
+    state AcessandoPreview : entry/MostrarVídeo()
+}
+
+[*] -->MostrandoLembrete :acesssar
+MostrandoLembrete -->AcessandoPreview :clique
+AcessandoPreview --> AssistindoConteudo
+
+MostrandoLembrete --> [*]
+AssistindoConteudo --> [*]
+@enduml

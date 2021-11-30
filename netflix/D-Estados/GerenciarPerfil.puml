@@ -1,0 +1,50 @@
+@startuml GerenciarPerfis
+
+[*] --> MostrandoPerfis
+
+state MostrandoPerfis {
+    state MostrandoPerfis : entry/listarPerfisConta()
+}
+
+state AdicionandoPerfil {
+    state AdicionandoPerfil : entry/inserirNome()
+    state AdicionandoPerfil : do/selecionarClassificacaoEtaria()
+}
+
+state decisao <<choice>>
+MostrandoPerfis --> decisao
+decisao --> AdicionandoPerfil 
+decisao --> GerenciandoPerfil
+AdicionandoPerfil --> SalvandoAlteracoes
+
+state GerenciandoPerfil {
+    state AlterandoNome{
+        state AlterandoNome : entry/alterarNome()
+    }
+    state SelecionandoIdioma{
+        state SelecionandoIdioma : entry/alterarIdioma()
+    }
+    state ConfigurandoInicioAutomatico{
+        state ConfigurandoInicioAutomatico : entry/alterarInicioAutomatico()
+    }
+    state AlterandoClassificacaoEtaria {
+        state AlterandoClassificacaoEtaria : entry/alterarClassificacaoEtaria()
+        state AlterandoClassificacaoEtaria : do/verificarContaInfantil()
+    }
+
+    AlterandoNome --> SelecionandoIdioma
+    SelecionandoIdioma --> ConfigurandoInicioAutomatico
+    ConfigurandoInicioAutomatico --> AlterandoClassificacaoEtaria
+    AlterandoClassificacaoEtaria--> [*]
+}
+
+GerenciandoPerfil --> SalvandoAlteracoes : [Edições finalizadas]
+
+state SalvandoAlteracoes {
+    state SalvandoAlteracoes : entry/salvarAlteracoes()
+}
+
+SalvandoAlteracoes --> [*]
+
+@enduml
+

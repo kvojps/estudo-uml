@@ -1,0 +1,49 @@
+@startuml secoes
+
+state NavegandoEmSecao {
+    state NavegandoEmSecao : entry/listarSecoes()
+}
+
+state Bombando {
+    state Bombando : entry/listarPorSecaoBombando()
+    state Bombando : do/navegarPorSecaoBombando()
+}
+
+state MinhaLista {
+    state MinhaLista : entry/listarPorSecaoMinhaLista()
+    state MinhaLista : do/navegarPorSecaoMinhaLista()
+}
+
+state NaoFinalizados {
+    state NaoFinalizados : entry/listarPorSecaoNaoFinalizados()
+    state NaoFinalizados : do/navegarPorSecaoNaoFinalizados()
+}
+
+state Top10 {
+    state  Top10 : entry/listarPorSecaoTop10()
+    state  Top10 : do/navegarPorSecao Top10()
+}
+
+state Reveja {
+    state  Reveja : entry/listarPorSecaoReveja()
+    state  Reveja : do/navegarPorSecaoReveja()
+}
+
+state fork_state <<fork>>
+[*] --> NavegandoEmSecao
+NavegandoEmSecao --> fork_state
+fork_state --> Bombando
+fork_state --> Top10
+fork_state --> Reveja
+fork_state --> MinhaLista
+fork_state --> NaoFinalizados
+
+state join_state <<join>>
+Bombando--> join_state
+MinhaLista --> join_state
+NaoFinalizados --> join_state
+Top10--> join_state
+Reveja --> join_state
+join_state --> [*]
+
+@enduml

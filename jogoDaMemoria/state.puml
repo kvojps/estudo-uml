@@ -2,8 +2,7 @@
 
 state IniciandoJogo {
     state IniciandoJogo : entry/iniciarJogo()
-    state IniciandoJogo : do/inserirNome()
-    
+    state IniciandoJogo : do/inserirNome()   
 }
 
 IniciandoJogo --> EmPartida

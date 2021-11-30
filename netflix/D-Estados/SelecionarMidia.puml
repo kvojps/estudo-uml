@@ -1,0 +1,37 @@
+@startuml Selecionar midia
+state SelecionandoMidia {
+    state SelecionandoMidia : selecionarMidia()
+}
+
+state AcionandoPlay {
+    state AcionandoPlay : acionarPlay()
+}
+
+state AcionandoPause {
+    state AcionandoPause : acionarPause()
+}
+
+state AdicionandoMinhaLista {
+    state AdicionandoMinhaLista : AdicionarMinhaLista()
+}
+
+state ClassificandoMidia {
+    state ClassificandoMidia : classificarMidia()
+}
+
+state fork_state <<fork>>
+[*] --> SelecionandoMidia
+SelecionandoMidia --> fork_state
+fork_state --> AcionandoPlay
+fork_state --> AcionandoPause
+fork_state --> AdicionandoMinhaLista
+fork_state --> ClassificandoMidia
+
+state join_state <<join>>
+AcionandoPlay --> join_state
+AcionandoPause --> join_state
+AdicionandoMinhaLista --> join_state
+ClassificandoMidia --> join_state
+
+join_state --> [*]
+@enduml
