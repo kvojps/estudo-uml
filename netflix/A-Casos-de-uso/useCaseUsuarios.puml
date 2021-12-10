@@ -1,0 +1,16 @@
+@startuml usuario
+:Usuário geral: as Usuario
+
+Usuario <|-- :Usuário infantil:
+:Usuário infantil: <|- :Usuário não cadastrado:
+
+Usuario --> (Acessar todas as midias)
+(Acessar todas as midias) ..> (Listar conteúdo)
+
+:Usuário infantil: --> (Acessar midias)
+:Usuário infantil: --> (Realizar login)
+(Acessar midias) ..> (Listar conteúdo infantil) :includes
+
+:Usuário não cadastrado: --> (Acessar prévias)
+:Usuário não cadastrado: --> (Realizar cadastro)
+@enduml

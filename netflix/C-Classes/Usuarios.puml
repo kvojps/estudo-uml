@@ -5,27 +5,24 @@ abstract class Usuario {
     - idioma: String
     - classificacaoEtaria : Integer
     - inicioAutomatico = True
+    - tipoUsuario : TipoUsuario
     - Usuario Usuario(String nome, String idioma, Integer classificacaoEtaria)
     + HashMap<Integer, Midia>  gerarConteudo()
     + void setNome (String nome)
     + void setIdioma (String idioma)
     + void setClassificacaoEtaria (Integer classificacaoEtaria)
-    + void setClassificacaoEtaria (Bool inicioAutomatico)
+    + void setInicioAutomatico (Bool inicioAutomatico)
+    + void setTipoUsuario (TipoUsuario tipoUsuario)
     + Secao navegarParacontinuarAssistindo (SecaoContinuarAssistindo secao)
     + Secao navegarParaBombando (SecaoBombando secao)
     + Secao navegarParaMinhaLista (SecaoMinhaLista secao)
+    + override HashMap<Integer, Midia>  gerarConteudo(TipoUsuario tipoUsuario)
 }
 
-class UsuarioGeral {
-    + override HashMap<Integer, Midia> gerarConteudo()
+Enum TipoUsuario {
+    GERAL, INFANTIL
 }
 
-class UsuarioInfantil {
-    + override HashMap<Integer, Midia>  gerarConteudo()
-    + Secao navegarParaSecaoInfantil (SecaoInfantil secao)
-}
-
-Usuario -- UsuarioGeral
-Usuario -- UsuarioInfantil
+Usuario -- TipoUsuario
 
 @enduml

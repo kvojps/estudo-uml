@@ -1,50 +1,65 @@
 @startuml GerenciarPerfis
+state fork1 <<fork>>
+state join2 <<join>>
 
-[*] --> MostrandoPerfis
+[*] --> ConsultandoConta : informarEmailDoUsuario
 
-state MostrandoPerfis {
-    state MostrandoPerfis : entry/listarPerfisConta()
+state ConsultandoConta {
+    state ConsultandoConta : do/consultarConta()
 }
 
-state AdicionandoPerfil {
-    state AdicionandoPerfil : entry/inserirNome()
-    state AdicionandoPerfil : do/selecionarClassificacaoEtaria()
+state RegistrandoConta {
+    state RegistrandoConta : do/cadastrarEmail()
+    state RegistrandoConta : do/cadastrarSenha()
+    state RegistrandoConta : do/cadastrarFormaPagamento()
+    state RegistrandoConta : do/validarRecaptcha()
 }
 
-state decisao <<choice>>
-MostrandoPerfis --> decisao
-decisao --> AdicionandoPerfil 
-decisao --> GerenciandoPerfil
-AdicionandoPerfil --> SalvandoAlteracoes
+ConsultandoConta --> RegistrandoConta : Ainda não cadastrado
+RegistrandoConta --> ConsultandoConta : Cadastro finalizado
 
-state GerenciandoPerfil {
-    state AlterandoNome{
-        state AlterandoNome : entry/alterarNome()
-    }
-    state SelecionandoIdioma{
-        state SelecionandoIdioma : entry/alterarIdioma()
-    }
-    state ConfigurandoInicioAutomatico{
-        state ConfigurandoInicioAutomatico : entry/alterarInicioAutomatico()
-    }
-    state AlterandoClassificacaoEtaria {
-        state AlterandoClassificacaoEtaria : entry/alterarClassificacaoEtaria()
-        state AlterandoClassificacaoEtaria : do/verificarContaInfantil()
-    }
+ConsultandoConta --> RecebendoSenha : contaVálida
 
-    AlterandoNome --> SelecionandoIdioma
-    SelecionandoIdioma --> ConfigurandoInicioAutomatico
-    ConfigurandoInicioAutomatico --> AlterandoClassificacaoEtaria
-    AlterandoClassificacaoEtaria--> [*]
+state RecebendoSenha {
+    state RecebendoSenha : do/inserirSenha()
 }
 
-GerenciandoPerfil --> SalvandoAlteracoes : [Edições finalizadas]
+RecebendoSenha --> ValidandoSenha : senhaInformada
 
-state SalvandoAlteracoes {
-    state SalvandoAlteracoes : entry/salvarAlteracoes()
+state ValidandoSenha {
+    state ValidandoSenha : do/validarSenha()
 }
 
-SalvandoAlteracoes --> [*]
+ValidandoSenha --> GerenciandoPerfis : senhaCorreta
+
+state GerenciandoPerfis {
+    state GerenciandoPerfis : do/adicionarPerfis()
+    state GerenciandoPerfis : do/listarPerfis()
+}
+
+state EditarPerfil {
+    state EditarPerfil : do/alterarNome()
+    state EditarPerfil : do/selecionarIdioma()
+    state EditarPerfil : do/configurarInicioAutomatico()
+    state EditarPerfil : do/alterarClassificacaoEtaria()
+}
+
+state AcessarPerfil {
+
+}
+
+GerenciandoPerfis --> fork1
+fork1 --> EditarPerfil
+fork1 --> AcessarPerfil
+EditarPerfil --> join2
+AcessarPerfil --> join2
+join2 --> ConsultandoConteudo
+
+state ConsultandoConteudo {
+    state ConsultandoConteudo : do/listarConteudo()
+}
+
+ConsultandoConteudo --> [*]
 
 @enduml
 
