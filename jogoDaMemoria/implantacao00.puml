@@ -1,0 +1,29 @@
+@startuml implantacao sistema de tickets
+
+node InterfaceVendas as "Interface de vendas \n <<device>>" {
+[PaginaVendaTickets]
+}
+
+node ServidorFirewall as "Servidor de firewall \n <<device>>" {
+[Firewall]
+}
+
+node ServidorComunicacao as "Servidor de comunicação \n <<device>>" {
+[ControladorRequisicoes]
+}
+
+node ServidorAplicacao as "Servidor de aplicação \n <<device>>" {
+[VendaTickets]
+[CadastroCliente]
+[GerenciadorLogin]
+}
+
+node ServidorBancoDados as "Servidor de banco de dados \n <<device>>"{
+[SGBD]
+}
+
+InterfaceVendas - ServidorFirewall : <TCP/IP>
+ServidorFirewall - ServidorComunicacao : <TCP/IP>
+ServidorComunicacao -- ServidorAplicacao : <TCP/IP>
+ServidorAplicacao -- ServidorBancoDados : <TCP/IP>
+@enduml

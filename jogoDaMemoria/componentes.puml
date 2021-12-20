@@ -1,0 +1,30 @@
+@startuml componentes jogo da memoria
+
+package "Tela do jogo" as tela {
+  [Seção jogo]
+  [Seção ranking]
+}
+
+package "Tabuleiro" {
+  [Gerenciador ranking] -- ranking
+  [Gerenciador pontuação] -- pontuação
+  tabuleiro - [Gerenciador tabuleiro]
+  [Gerenciador cartas] -- cartas 
+  
+}
+
+database "SGBD" {
+  frame "Jogador" {
+  }
+  frame "Jogo" {
+  }
+}
+
+[Seção ranking] --> ranking
+[Seção jogo] --> tabuleiro
+[Gerenciador tabuleiro] --> cartas
+[Gerenciador ranking] --> pontuação
+Tabuleiro --> AcessarDados
+AcessarDados - SGBD
+
+@enduml

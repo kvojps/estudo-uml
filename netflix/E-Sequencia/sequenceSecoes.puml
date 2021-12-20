@@ -1,0 +1,18 @@
+@startuml secoes
+actor Usuario
+
+Usuario -> InterfaceUsuario : acessarSecoes()
+
+InterfaceUsuario -> Negocio: renderizarSecoes()
+Negocio -> Repositorio: obterSecoes()
+Repositorio --> Negocio: lista de seções
+Negocio --> InterfaceUsuario : seções
+
+Usuario -> InterfaceUsuario : selecionarSecao()
+InterfaceUsuario -> Negocio: renderizarSecao()
+Negocio -> Repositorio: obterSecao()
+Repositorio --> Negocio: seção
+Negocio --> InterfaceUsuario : seção específica
+
+InterfaceUsuario --> Usuario
+@enduml
