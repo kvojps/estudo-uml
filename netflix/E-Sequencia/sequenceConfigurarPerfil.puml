@@ -1,0 +1,20 @@
+@startuml Configurar perfil
+Usuario -> InterfaceUsuario : adicionarPerfil()
+
+InterfaceUsuario -> Negocio: personalizarPerfil()
+Negocio -> Negocio : adicionarNome()
+Negocio -> Negocio : cadastrarFaixaEtaria()
+Negocio -> Repositorio: salvarAlteracoes()
+Repositorio --> Negocio: lista de perfis
+Negocio --> InterfaceUsuario : perfis
+
+Usuario -> InterfaceUsuario : gerenciarPerfil()
+InterfaceUsuario -> Negocio: editarPerfil()
+Negocio -> Negocio : alterarNome()
+Negocio -> Negocio : alterarFaixaEtaria()
+Negocio -> Repositorio: salvarAlteracoes()
+Repositorio --> Negocio: lista de perfis
+Negocio --> InterfaceUsuario : perfis
+
+InterfaceUsuario --> Usuario
+@enduml

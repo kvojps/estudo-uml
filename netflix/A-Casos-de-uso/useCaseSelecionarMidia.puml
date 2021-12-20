@@ -3,6 +3,9 @@ actor Usuario
 actor Sistema 
 (Usuario) --> (Selecionar midia)
 (Selecionar midia) <.. (Assistir) :Extends
+(Assistir) ..> (Play/pause) :Include
+(Assistir) ..> (Manter estado) :Include
+
 (Selecionar midia) <.. (Adicionar à lista) :Extends
 (Selecionar midia) <.. (Classificar) :Extends
 (Selecionar midia) <.. (Remover da fileira) :Extends

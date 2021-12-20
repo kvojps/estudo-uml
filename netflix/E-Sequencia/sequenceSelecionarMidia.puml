@@ -1,0 +1,27 @@
+@startuml selecionar midia
+Usuario -> InterfaceUsuario : selecionarMidia()
+
+InterfaceUsuario -> Negocio: assistirMidia()
+Negocio -> Negocio : alterarEstado()
+Negocio -> Repositorio: salvarEstado()
+Repositorio --> Negocio: midia
+Negocio --> InterfaceUsuario : midia
+
+InterfaceUsuario -> Negocio: adicionarFavoritos()
+Negocio -> Negocio : adicionarListaDeFavoritos()
+Negocio -> Repositorio: atualizarListaDeFavoritos()
+Repositorio --> Negocio: midia
+Negocio --> InterfaceUsuario : midia
+
+InterfaceUsuario -> Negocio: classificarMidia()
+Negocio -> Repositorio: atribuirClassificacao()
+Repositorio --> Negocio: midia
+Negocio --> InterfaceUsuario : midia
+
+InterfaceUsuario -> Negocio: verInformacoes()
+Negocio -> Repositorio: carregarInformacoes()
+Repositorio --> Negocio: informacoes
+Negocio --> InterfaceUsuario : informacoes
+
+InterfaceUsuario --> Usuario
+@enduml
