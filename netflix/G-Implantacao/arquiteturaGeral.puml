@@ -1,0 +1,34 @@
+@startuml implantacao sistema de tickets
+
+node DispositivosReproducao as "Dispositivos de reprodução \n <<device>>" {
+
+}
+
+node IspProvedorRede as "ISP/Provedor de rede \n" {
+
+}
+
+node ServidorPrimeiroNivel as "Servidor de primeiro nivel \n" {
+
+}
+
+cloud AmazonWebServices as "Amazon web services \n" {
+[S3 Storage]
+[Scalable Instances]
+[Transcoding]
+}
+
+node MicroServicos as "MicroServiços \n" {
+[Distribuição de conteúdo]
+[Redundância de nuvem]
+[Streaming]
+}
+
+note "Os servidores determinam o local da solicitação por região\n para otimizar a entrega de conteúdo. Enfim o conteúdo\n para o usuário." as  N
+
+DispositivosReproducao -- IspProvedorRede: <TCP/IP> \n Requisição de conteúdo
+IspProvedorRede -- ServidorPrimeiroNivel : <TCP/IP> 
+ServidorPrimeiroNivel -- AmazonWebServices : <TCP/IP> \n Obtêm-se o conteúdo de um \nlocal de armazenamento
+AmazonWebServices -- MicroServicos : <TCP/IP>
+MicroServicos -- N
+@enduml
