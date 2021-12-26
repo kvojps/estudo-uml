@@ -1,0 +1,8 @@
+@startuml login
+Usuario -- (Realizar Login)
+(Realizar Login) <.. (Autorregistrar) : extends
+(Realizar Login) ..> (Informar e-mail/nome de usuário) : include
+(Realizar Login) ..> (Informar senha) :include
+(Informar e-mail/nome de usuário) ..> (Validar entrada) : include
+(Informar senha) ..> (Validar entrada) :include
+@enduml

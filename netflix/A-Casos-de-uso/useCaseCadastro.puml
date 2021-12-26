@@ -1,0 +1,11 @@
+@startuml cadastro
+actor Usuario
+Usuario -- (Realizar Cadastro)
+(Realizar Cadastro) <.. (Realizar login) : extends
+(Realizar Cadastro) ..> (Informar e-mail) : include
+(Realizar Cadastro) ..> (Informar nome de usuario) : include
+(Realizar Cadastro) ..> (Informar senha) : include
+(Informar senha) ..> (Repetir senha) : include
+(Realizar Cadastro) .> (Validar cadastro) : include
+(Validar cadastro) ..> (Emitir termos de uso) :include
+@enduml
