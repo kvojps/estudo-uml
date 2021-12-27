@@ -1,0 +1,29 @@
+@startuml Sistema Controle Netflix
+
+cloud cloud1 as "AWS Cloud services" {
+    [Website ou Discovery API]
+    [Dados do usuário]
+    [Personalização]
+    [Streaming API]
+    [DRM]
+    [QoS Logging]
+    [Gerenciamento de CDN]
+    [Content Encoding]
+}
+
+node node1 as "CDN Edge locations" {
+    [OpenConnect CDN Boxes]
+}
+
+
+[Website ou Discovery API] -(0- [Dados do usuário]
+[Website ou Discovery API] -(0- [Personalização]
+[Streaming API] -(0- [DRM]
+[Streaming API] -(0- [QoS Logging]
+[OpenConnect CDN Boxes] -(0- [Gerenciamento de CDN]
+[OpenConnect CDN Boxes] -(0- [Content Encoding]
+[Interface netflix] -(0- [Website ou Discovery API]
+[Interface netflix] -(0- [Streaming API]
+[Interface netflix] -(0- [OpenConnect CDN Boxes]
+
+@enduml

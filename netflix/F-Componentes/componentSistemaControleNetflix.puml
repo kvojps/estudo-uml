@@ -1,0 +1,22 @@
+@startuml Sistema Controle Netflix
+
+cloud cloud1 as "AWS"
+database db as "Banco de dados"
+
+node node1 as "Gerenciador mídias" {
+  [Filmes]
+  [Séries]
+  [Documentários]
+}
+
+node node2 as "Gerenciador mídias" {
+  [Gerenciador login]
+  [Gerenciador cadastro]
+  [Gerenciador perfil]
+}
+
+db -0)-- node2
+cloud1 -0)-- node1
+node1 -0)- [Interface netflix]
+node2 -0)- [Interface netflix]
+@enduml

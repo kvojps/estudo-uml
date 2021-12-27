@@ -1,0 +1,19 @@
+@startuml implantacao sistema de tickets
+
+node PlayApi as "Play Api Service" {
+
+}
+
+node MaterializedView as "Materialized View" {
+[Data service]
+[Data store]
+[Data loader]
+}
+
+node DataSource as "Data source" {
+
+}
+
+PlayApi -- MaterializedView : <TCP/IP>
+MaterializedView -- DataSource : <TCP/IP>
+@enduml

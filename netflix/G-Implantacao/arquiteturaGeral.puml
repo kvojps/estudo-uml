@@ -24,7 +24,7 @@ node MicroServicos as "MicroServiços \n" {
 [Streaming]
 }
 
-note "Os servidores determinam o local da solicitação por região\n para otimizar a entrega de conteúdo. Enfim o conteúdo\n para o usuário." as  N
+note "Os servidores determinam o local da solicitação por região\n para otimizar a entrega de conteúdo." as  N
 
 DispositivosReproducao -- IspProvedorRede: <TCP/IP> \n Requisição de conteúdo
 IspProvedorRede -- ServidorPrimeiroNivel : <TCP/IP> 
