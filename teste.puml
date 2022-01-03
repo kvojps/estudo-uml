@@ -1,12 +1,13 @@
 @startuml usuario
 left to right direction
 :Usuário geral: as Usuario
+
 Usuario -|> :Usuário não cadastrado:
 
-Usuario --> (Acessar mídias)
-Usuario --> (Acessar conta)
-(Acessar mídias) ..> (Filtrar por perfil) :includes
+Usuario --> (Acessar midias)
+Usuario --> (Realizar login)
+(Acessar midias) ..> (Filtrar por perfil) :includes
 
 :Usuário não cadastrado: --> (Acessar prévias)
-:Usuário não cadastrado: --> (Cadastrar conta)
+:Usuário não cadastrado: --> (Realizar cadastro)
 @enduml

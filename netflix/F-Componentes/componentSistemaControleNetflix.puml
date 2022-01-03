@@ -9,7 +9,7 @@ node node1 as "Gerenciador mídias" {
   [Documentários]
 }
 
-node node2 as "Gerenciador mídias" {
+node node2 as "Gerenciador perfil" {
   [Gerenciador login]
   [Gerenciador cadastro]
   [Gerenciador perfil]
@@ -17,6 +17,6 @@ node node2 as "Gerenciador mídias" {
 
 db -0)-- node2
 cloud1 -0)-- node1
-node1 -0)- [Interface netflix]
-node2 -0)- [Interface netflix]
+node1 -0)- [Dispositivos reprodução]
+node2 -0)- [Dispositivos reprodução]
 @enduml
