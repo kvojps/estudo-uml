@@ -1,0 +1,10 @@
+@startuml demo presentation
+abstract class Accessor {}
+
+Accessor <|-- DemoPresentation
+
+class DemoPresentation {
+    + void loadFile(Presentation presentation, String unusedFilename)
+    + void saveFile(Presentation presentation, String unusedFilename)
+}
+@enduml
