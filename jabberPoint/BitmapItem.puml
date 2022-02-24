@@ -8,12 +8,14 @@ SlideItem <|-- BitmapItem
 class BitmapItem{
     - BufferedImage bufferedImage
     - String imageName
-    # final String File = "Arquivo "
-    # final String NOTFOUND = "não encontrado"
+    # static final String File = "Arquivo "
+    # static final String NOTFOUND = "não encontrado"
 
     + BitmapItem BitmapItem(int level, String name)
 
-    + BitmapItem BitmapItem(int level, String name)
+    + BitmapItem BitmapItem()
+
+    + String getName()
 
     + Rectangle getBoundingBox(Graphics g, ImageObserver observer, float scale, Style myStyle)
 
