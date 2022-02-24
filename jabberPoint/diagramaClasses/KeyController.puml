@@ -1,0 +1,13 @@
+@startuml key controller
+class keyAdapter {
+
+}
+
+keyAdapter <|-- KeyController
+
+class KeyController {
+    - Presentation presentation
+    + KeyController KeyController()
+    + void keyPressed(KeyEvent keyEvent)
+}
+@enduml

@@ -1,0 +1,7 @@
+@startuml about box
+
+class AboutBox {
+    + static void show(Frame parent)
+}
+
+@enduml

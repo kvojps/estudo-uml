@@ -1,0 +1,26 @@
+@startuml bitmap item
+abstract class SlideItem {
+
+}
+
+SlideItem <|-- BitmapItem
+
+class BitmapItem{
+    - BufferedImage bufferedImage
+    - String imageName
+    # static final String File = "Arquivo "
+    # static final String NOTFOUND = "não encontrado"
+
+    + BitmapItem BitmapItem(int level, String name)
+
+    + BitmapItem BitmapItem()
+
+    + String getName()
+
+    + Rectangle getBoundingBox(Graphics g, ImageObserver observer, float scale, Style myStyle)
+
+    + void draw(int x, int y, float scale, Graphics g, Style myStyle, ImageObserver observer)
+
+    + String toString()
+}
+@enduml
