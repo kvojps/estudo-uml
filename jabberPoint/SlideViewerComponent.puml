@@ -1,0 +1,25 @@
+@startuml slide viewer component
+class JComponent{}
+
+JComponent <|-- SlideViewerComponent
+
+class SlideViewerComponent{
+    - static final Color BGCOLOR = Color.white
+    - static final Color COLOR = Color.black
+    - static final String FONTNAME = "Dialog"
+    - static final int FONTSTYLE = Font.BOLD
+    - static final int FONTHEIGHT = 10
+    - static final int XPOS = 1100
+    - static final int YPOS = 20
+
+    - Slide slide
+    - Font labelFont = null
+    - Presentation presentation = null
+    - JFrame frame = null
+
+    + SlideViewerComponent SlideViewerComponent(Presentation presentation, JFrame frame)
+    + Dimension getPreferredSize()
+    + void update()
+    + void paintComponnent()
+}
+@enduml

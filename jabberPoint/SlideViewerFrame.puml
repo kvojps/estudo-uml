@@ -1,0 +1,16 @@
+@startuml slide viewer frame
+    class JFrame{}
+
+    JFrame <|-- SlideViewerFrame
+
+    class SlideViewerFrame{
+        - static final long serialVersionUID = 3227L
+        - static final String JABTITLE = "Jabberpoint 1.6"
+        + final static int WIDTH = 1200
+        + final static int HEIGHT = 800
+
+        + SlideViewerFrame SlideViewerFrame(String title, Presentation presentation)
+        + void setupWindow(SlideViewerComponent slideViewerComponent, Presentation presentation)
+
+    }   
+@enduml

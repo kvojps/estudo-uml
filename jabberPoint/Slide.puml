@@ -1,0 +1,19 @@
+@startuml slide
+class Slide {
+    + final static int WIDTH = 1200
+    + final static int HEIGHT = 800
+    # TextItem title
+    # Vector<SlideItem> items
+
+    + Slide Slide()
+    + void append(SlideItem anItem)
+    + String getTitle()
+    + void setTitle(String newTitle)
+    + void append(int level, String message)
+    + SlideItem getSlideItem(int number)
+    + Vector<SlideItem> getSlideItems()
+    + getSize()
+    + void draw(Graphics g, Rectangle area, ImageObserver view)
+    - float getScale(Rectangle area)
+}
+@enduml
