@@ -1,0 +1,15 @@
+@startuml application
+    interface CommandLineRunner{}
+
+    CommandLineRunner <|-- JabberPointApplication
+    
+    class JabberPointApplication{
+        # static final String IOERR = "IO Error: "
+        # static final String JABERR = "JabberPoint Error "
+        # static final String JABVERSION = "JabberPoint 1.6"
+
+        + static void main(String[] argv)
+        + void run(String... args)
+
+    }
+@enduml
