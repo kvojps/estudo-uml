@@ -1,0 +1,21 @@
+@startuml iniciar apresentação
+activate Usuario
+Usuario -> InterfaceUsuario : run(arg)
+activate InterfaceUsuario
+InterfaceUsuario -> Negocio
+deactivate InterfaceUsuario
+
+activate Negocio
+Negocio -> Negocio : Style.createStyles()
+Negocio -> Negocio : XMLAcessor().loadFile(presentation,args[0])
+Negocio -> Negocio : presentaion.setTitle(getTitle(element, tagName))
+Negocio -> Negocio : slide.setTitle(getTittle(element, tagName))
+Negocio -> Negocio : presentation.append(slide)
+Negocio -> Negocio : loadSlideItem(slide, item)
+deactivate Negocio
+
+activate InterfaceUsuario
+Negocio --> InterfaceUsuario : apresentação carregada
+deactivate InterfaceUsuario
+deactivate Usuario
+@enduml

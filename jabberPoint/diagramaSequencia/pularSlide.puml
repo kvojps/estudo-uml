@@ -1,0 +1,18 @@
+@startuml pular para
+
+activate Usuario
+Usuario -> InterfaceUsuario : Pular para
+activate InterfaceUsuario
+InterfaceUsuario -> Negocio : Presentation.setSlideNumber()
+deactivate InterfaceUsuario
+activate Negocio
+Negocio -> Negocio : SlideViewComponent.update(presentation, data)
+Negocio -> Negocio : repaint()
+Negocio -> Negocio : frame.setTitle(presentation.getTitle())
+deactivate Negocio
+activate InterfaceUsuario
+Negocio --> InterfaceUsuario : Slide alterado
+deactivate InterfaceUsuario
+deactivate Usuario
+
+@enduml

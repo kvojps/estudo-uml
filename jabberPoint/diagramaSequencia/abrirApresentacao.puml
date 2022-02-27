@@ -1,0 +1,13 @@
+@startuml funcionalidades do menu
+
+activate Usuario
+Usuario -> InterfaceUsuario : Abrir
+activate InterfaceUsuario
+InterfaceUsuario -> Negocio : loadFile(presentation, fileName)
+activate Negocio
+Negocio --> InterfaceUsuario : apresentação carregada
+deactivate Negocio
+deactivate InterfaceUsuario
+deactivate Usuario
+
+@enduml

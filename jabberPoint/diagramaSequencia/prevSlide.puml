@@ -1,0 +1,13 @@
+@startuml slide anterior
+
+activate Usuario
+Usuario -> InterfaceUsuario : Anterior
+activate InterfaceUsuario
+InterfaceUsuario -> Negocio : Presentation.prevSlide()
+activate Negocio
+Negocio --> InterfaceUsuario : setSlideNumber(currentSlideNumber - 1)
+deactivate Negocio
+deactivate InterfaceUsuario
+deactivate Usuario
+
+@enduml
