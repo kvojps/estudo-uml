@@ -1,0 +1,2 @@
+# ESTUDO-UML
+Repositório voltado para disciplina de Projeto de Software, onde foi construído alguns diagramas para entendimento do propósito da aplicação. Os diagramas da classe JabberPoint referenciam o projeto que está sendo desenvolvido na disciplina de padrões de projeto.
