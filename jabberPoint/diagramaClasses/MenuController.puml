@@ -3,20 +3,35 @@
 
     MenuBar <|-- MenuController
 
-    class MenuController {
-        - static final long serialVersionUID = 227L
-        - Frame parent
-        - Presentation presentation
-        # static final String FILE = "Arquivo"
-        # static final String EXIT = "Sair"
-        # static final String HELP = "Ajuda"
-        # static final String NEW = "Novo"
-        # static final String NEXT = "Próximo"
-        # static final String OPEN = "Abrir"
-        # static final String SAVE = "Salvar"
-        # static final String VIEW = "Sobre"
+class MenuController {
 
-        + MenuController MenuController(Frame frame, Presentation presentation)
-        + MenuItem mkMenuItem(String name)
-    }
+  - {static} serialVersionUID : Long = 227L
+  - parent : Frame
+  - presentation : Presentation
+
+  # {static} ABOUT : String = "Sobre"
+  # {static} FILE : String = "Arquivo"
+  # {static} EXIT : String = "Sair"
+  # {static} GOTO : String = "Pular para"
+  # {static} HELP : String = "Ajuda"
+  # {static} NEW : String = "Novo"
+  # {static} NEXT : String = "Próximo"
+  # {static} OPEN : String = "Abrir"
+  # {static} PAGENR : String = "Número do Slide"
+  # {static} PREV : String = "Anterior"
+  # {static} SAVE : String = "Salvar"
+  # {static} VIEW : String = "Visualizar"
+
+  # {static} TESTFILE : String = "classpath:test.xml"
+  # {static} SAVEFILE : String = "classpath:dump.xml"
+
+  # {static} IOEX : String = "IO Exception: "
+  # {static} LOADERR : String = "Erro ao carregar"
+  # {static} SAVERR : String = "Erro ao salvar"
+
+  + MenuController(frame : Frame, pres : Presentation)
+  + mkMenuItem(name : String) : MenuItem
+
+}
+
 @enduml
