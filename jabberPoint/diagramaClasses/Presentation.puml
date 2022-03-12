@@ -2,15 +2,10 @@
     class Presentation {
         - String title
         - ArrayList<Slide> showList = null
-        - SlideViewerComponent slideViewComponent = null
-        - int currentSlideNumber = 0
 
         + Presentation Presentation()
-        + Presentation Presentation(SlideViewerComponent slideViewerComponent)
-        + int getSize()
         + String getTitle()
         + void setTitle()
-        + void setShowView()
         + int getSlideNumber()
         + void setSlideNumber(int number)
         + void prevSlide()
@@ -18,7 +13,6 @@
         + void clear()
         + void append(Slide slide)
         + Slide getSlide(int number)
-        + Slide getCurrentSlide()
         + void exit()
     }
 @enduml

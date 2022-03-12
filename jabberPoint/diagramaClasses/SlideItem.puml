@@ -4,7 +4,5 @@
         + SlideItem SlideItem(int lev)
         + SlideItem SlideItem()
         + int getLevel()
-        + abstract Rectangle getBoundingBox(Graphics g, ImageObserver observer, float scale, Style style)
-        + abstract void draw(int x, int y, float scale, Graphics g, Style style, ImageObserver observer)
     }
 @enduml
