@@ -1,0 +1,22 @@
+@startuml iniciar apresentação
+activate Usuario
+Usuario -> InterfaceUsuario : run(String ..args)
+activate InterfaceUsuario
+InterfaceUsuario -> Negocio
+deactivate InterfaceUsuario
+
+activate Negocio
+Negocio -> Negocio : Style.createStyles()
+Negocio -> Negocio : String file = "" && file = args[0];
+Negocio -> Negocio : presentation = PresentationDataAssistant().load(file)
+Negocio -> Negocio : Presentation().getInstance().clear()
+Negocio -> Negocio : String extension = getExtensionFromFileName()
+Negocio -> Negocio : getPresentationDataFromExtension(extension).load(file)
+Negocio -> Negocio : SlideViewerFrame(JABVERSION, presentation)
+deactivate Negocio
+
+activate InterfaceUsuario
+Negocio --> InterfaceUsuario : apresentação carregada
+deactivate InterfaceUsuario
+deactivate Usuario
+@enduml

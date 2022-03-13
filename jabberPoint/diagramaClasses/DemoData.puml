@@ -1,0 +1,15 @@
+@startuml demo data
+interface IData {}
+interface ISavePresentation{}
+interface ILoadPresentation{}
+
+IData -- DemoData
+ISavePresentation -- DemoData
+ILoadPresentation -- DemoData
+
+class DemoData {
+    + String supportedExtension()
+    + load(String file)
+    + save(presentation, file)
+}
+@enduml
