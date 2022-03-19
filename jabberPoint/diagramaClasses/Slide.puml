@@ -4,13 +4,13 @@ class Slide {
     # Vector<SlideItem> items
 
     + Slide Slide()
-    + void append(SlideItem anItem)
-    + String getTitle()
-    + void setTitle(String newTitle)
     + void appendSlideItem(SlideItem anItem)
+    + String getTitleText()
+    + TextItem getTitle()
+    + void setTitle()
     + void appendTextItem(int level, String message)
     + SlideItem getSlideItem(int number)
     + Vector<SlideItem> getSlideItems()
-    + getSize()
+    + int getSize()
 }
 @enduml

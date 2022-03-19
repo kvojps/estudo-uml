@@ -2,8 +2,10 @@
     class Presentation {
         - String title
         - ArrayList<Slide> showList = null
+        - int currenteSlideNumber
 
         + Presentation Presentation()
+        + int getSize()
         + String getTitle()
         + void setTitle()
         + int getSlideNumber()
@@ -13,6 +15,6 @@
         + void clear()
         + void append(Slide slide)
         + Slide getSlide(int number)
-        + void exit()
+        + Slide getCurrentSlide()
     }
 @enduml
