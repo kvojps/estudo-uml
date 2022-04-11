@@ -1,0 +1,7 @@
+@startuml JabberPointUtil
+    class JabberPointUtil {
+        - JabberPointUtil JabberPointUtil()
+        + static final byte[] decode(String coded)
+        + static final String encode(byte[] decoded)
+    }
+@enduml

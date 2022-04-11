@@ -1,0 +1,7 @@
+@startuml ImageEnconderDecoder
+
+class ImageEnconderDecoder {
+    + void main (String[] args)
+}
+
+@enduml

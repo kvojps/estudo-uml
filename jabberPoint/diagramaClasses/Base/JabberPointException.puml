@@ -1,0 +1,8 @@
+@startuml JabberPointException
+    class JabberPointException {
+        - static final long serialVersionUID = -3598106776661484014L
+
+        + JabberPointException JabberPointException(String message, Exception cause)
+        + JabberPointException JabberPointException(String message)
+    }
+@enduml
