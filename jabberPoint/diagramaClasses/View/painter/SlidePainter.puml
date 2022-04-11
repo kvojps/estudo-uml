@@ -1,0 +1,12 @@
+@startuml SlidePainter
+
+class SlidePainter{
+    - Slide slide
+    
+    + SlidePainter(Slide slide)
+
+    + final void draw(Graphics g, Rectangle area, ImageObserver view)
+    - float getScale(Rectangle area)
+}
+
+@enduml

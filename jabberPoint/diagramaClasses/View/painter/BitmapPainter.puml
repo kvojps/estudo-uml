@@ -1,0 +1,12 @@
+@startuml BitmapPainter
+
+class BitmapPainter{
+    - BitmapPainter()
+
+    + static int draw(int x, int y, float scale, Graphics g, Style myStyle, ImageObserver observer,
+			SlideItem item)
+    - static Rectangle getBoundingBox(Graphics g, ImageObserver observer, float scale, Style myStyle,
+			byte[] imageByte)
+}
+
+@enduml

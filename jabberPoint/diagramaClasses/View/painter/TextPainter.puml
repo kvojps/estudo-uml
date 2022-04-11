@@ -1,0 +1,11 @@
+@startuml TextPainter
+
+class TextPainter{
+    - TextPainter()
+
+    + static int draw(int x, int y, float scale, Graphics g, Style myStyle,SlideItem item)
+    - static Rectangle getBoundingBox(Graphics g, float scale, Style myStyle, String text)
+    - static List<TextLayout> getLayouts(Graphics g, Style s, float scale, String text)
+}
+
+@enduml

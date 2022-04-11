@@ -1,0 +1,20 @@
+@startuml slide viewer frame
+    class JFrame{}
+
+    JFrame <|-- PresentatioViewer
+
+    class PresentatioViewer{
+        - static final long serialVersionUID = 3227L
+        - static final String JABTITLE = "Jabberpoint 1.6"
+        + Presentation presentation
+        + SlideViewer slideViewer
+
+        + PresentatioViewer PresentatioViewer(Presentation presentation)
+        + final Presentation currentPresentation()
+        + void setupWindow()
+        + void loadPresentation()
+        + void nextSlide()
+        + void previousSlide()
+        + void goToSlide()
+    }   
+@enduml
