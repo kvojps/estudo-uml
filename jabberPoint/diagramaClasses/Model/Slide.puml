@@ -1,0 +1,13 @@
+@startuml slide
+class Slide {
+    # String title
+    # LinkedList<SlideItem> items
+
+    + Slide Slide()
+    + Slide Slide(String title)
+    + void append(SlideItem anItem)
+    + void add(int level, SlideItem item)
+    + SlideItem getSlideItem(int number)
+    + int getItemsSize()
+}
+@enduml

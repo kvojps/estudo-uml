@@ -1,8 +1,0 @@
-@startuml slide item 
-    abstract class SlideItem{
-        - int level = 0
-        + SlideItem SlideItem(int lev)
-        + SlideItem SlideItem()
-        + int getLevel()
-    }
-@enduml

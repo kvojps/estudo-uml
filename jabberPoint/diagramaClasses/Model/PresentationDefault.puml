@@ -1,0 +1,11 @@
+@startuml Presentation
+class Presentation {
+
+}
+
+Presentation <|-- PresentationDefault
+
+class PresentationDefault {
+    + PresentationDefault PresentationDefault()
+}
+@enduml

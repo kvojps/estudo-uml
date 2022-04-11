@@ -1,0 +1,12 @@
+@startuml slide item 
+    abstract class SlideItem{
+        - int level = 0
+        - String text
+        - SlideItemType type
+        - byte[] media
+
+        + SlideItem SlideItem(int level)
+        + SlideItem SlideItem(int level, String text)
+        + SlideItem SlideItem(int level, String caption, byte[] image)
+    }
+@enduml

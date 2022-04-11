@@ -1,0 +1,11 @@
+@startuml demo presentation
+abstract class Presentation {}
+
+Presentation <|-- DemoPresentation
+
+class PresentationDemo {
+    - final String DEMO_IMAGE = ""
+
+    - void initializeDemo()
+}
+@enduml

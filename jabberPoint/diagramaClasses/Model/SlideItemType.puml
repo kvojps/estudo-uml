@@ -1,0 +1,5 @@
+@startuml SlideItemType
+    enum SlideItemType{
+        TEXT,IMAGE
+    }
+@enduml

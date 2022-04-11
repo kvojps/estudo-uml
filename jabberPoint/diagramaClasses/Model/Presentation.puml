@@ -1,0 +1,18 @@
+@startuml presentation
+    class Presentation {
+        - String title
+        - ArrayList<Slide> slides = null
+        - int currenteSlideNumber
+
+        + Presentation Presentation()
+        + int getSlidesSize()
+        + void prevSlide()
+        + void nextSlide()
+        + Slide getCurrentSlide()
+        + Slide getSlide(int number)
+        + void add(Slide slide)
+        + void clear()
+        + void currentStatus()
+        + boolean isValid()
+    }
+@enduml
