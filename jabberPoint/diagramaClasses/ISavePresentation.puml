@@ -1,5 +1,0 @@
-@startuml ISavePresentation
-interface ISavePresentation {
-    void save(Presentation presentation, String file);
-}
-@enduml

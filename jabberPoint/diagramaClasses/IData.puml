@@ -1,7 +1,0 @@
-@startuml IData
-interface IData {
-    String suporttedExtension();
-    Presentation load(String file);
-    void save(Presentation presentation, String file);
-}
-@enduml

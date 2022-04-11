@@ -1,8 +1,0 @@
-@startuml PresentationDataAssistant
-class PresentationDataAssistant {
-    - Hashmap<String, IData> supportedExtensions;
-    + PresentationDataAssistant();
-    + void load(String file);
-    + void save(String file);
-}
-@enduml

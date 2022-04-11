@@ -1,6 +1,0 @@
-@startuml ILoadPresentation
-interface ILoadPresentation {
-    String suporttedExtension();
-    Presentation load(String file);
-}
-@enduml
