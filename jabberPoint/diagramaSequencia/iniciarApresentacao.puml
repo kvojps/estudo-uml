@@ -1,0 +1,19 @@
+@startuml iniciar apresentação
+activate Usuario
+Usuario -> InterfaceUsuario : run()
+activate InterfaceUsuario
+InterfaceUsuario -> Negocio
+deactivate InterfaceUsuario
+
+activate Negocio
+Negocio -> Negocio : Style.createStyles()
+Negocio -> Negocio : String file = args == null || args.length == 0 ? null : args[0];
+Negocio -> Negocio : if (StringUtils.hasLength(file)) {this.presentation = fileFormat.load(file);} else {this.presentation = new PresentationDemo();}
+Negocio -> Negocio : new PresentationViewer(this.presentation);
+deactivate Negocio
+
+activate InterfaceUsuario
+Negocio --> InterfaceUsuario : apresentação
+deactivate InterfaceUsuario
+deactivate Usuario
+@enduml

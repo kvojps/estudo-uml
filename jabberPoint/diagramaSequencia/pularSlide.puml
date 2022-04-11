@@ -3,12 +3,11 @@
 activate Usuario
 Usuario -> InterfaceUsuario : Pular para
 activate InterfaceUsuario
-InterfaceUsuario -> Negocio : Presentation.setSlideNumber()
+InterfaceUsuario -> Negocio : Presentation.setCurrentSlideNumber()
 deactivate InterfaceUsuario
 activate Negocio
-Negocio -> Negocio : SlideViewComponent.update(presentation, data)
+Negocio -> Negocio : slideViewer.update(presentation.getCurrentSlide(), presentation.currentStatus())
 Negocio -> Negocio : repaint()
-Negocio -> Negocio : frame.setTitle(presentation.getTitle())
 deactivate Negocio
 activate InterfaceUsuario
 Negocio --> InterfaceUsuario : Slide alterado

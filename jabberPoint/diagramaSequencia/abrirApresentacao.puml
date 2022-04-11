@@ -3,9 +3,9 @@
 activate Usuario
 Usuario -> InterfaceUsuario : Abrir
 activate InterfaceUsuario
-InterfaceUsuario -> Negocio : loadFile(presentation, fileName)
+InterfaceUsuario -> Negocio : parent.Presentation(JabberPointApplication.getFileManager().load(TESTFILE))
 activate Negocio
-Negocio --> InterfaceUsuario : apresentação carregada
+Negocio --> InterfaceUsuario : apresentação teste.xml carregada
 deactivate Negocio
 deactivate InterfaceUsuario
 deactivate Usuario
