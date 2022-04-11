@@ -29,8 +29,11 @@ class MenuController {
   # {static} LOADERR : String = "Erro ao carregar"
   # {static} SAVERR : String = "Erro ao salvar"
 
-  + MenuController(frame : Frame, pres : Presentation)
-  + mkMenuItem(name : String) : MenuItem
+  + MenuController(PresentationViewer parent)
+  - void createMenuFile(PresentationViewer parent)
+  - void createMenuView(PresentationViewer parent)
+  - void createMenuHelp(PresentationViewer parent)
+  + createMenuItem(name : String) : MenuItem
 
 }
 

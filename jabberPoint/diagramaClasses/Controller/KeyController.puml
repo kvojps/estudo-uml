@@ -6,7 +6,7 @@ class keyAdapter {
 keyAdapter <|-- KeyController
 
 class KeyController {
-    - Presentation presentation
+    - PresentationViewer parent
     + KeyController KeyController()
     + void keyPressed(KeyEvent keyEvent)
 }

@@ -1,0 +1,13 @@
+@startuml XMLFormat
+    class XMLFormat {
+        + final Presentation load(String filename)
+        + void save(Presentation presentation, String filename)
+        - Presentation extractPresentation(Element xmlPresentation)
+        - void extractSlides(Presentation presentation, NodeList slidesElements)
+        - SlideItem extractSlideItems(Element item)
+        - void validateObject(Object object, String logMessage, String systemMessage)
+        - void throwException(String logMessage, String systemMessage)
+        - void serializePresentation(Presentation presentation, PrintWriter xmlFile)
+        - void serializeSlidesItem(PrintWriter xmlFile, Slide slide)
+    }
+@enduml
