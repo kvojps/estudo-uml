@@ -1,0 +1,39 @@
+@startuml strategy nos tipos de arquivos
+
+class JabberPointApplication {
+    int opcaoArquivo;
+    TipoArquivo tipoArquivo = TipoArquivo.values()[opcaoArquivo - 1];
+    IFilePresentationFormat formatoArquivo = tipoArquivo.obterTipoArquivo();
+}
+
+JabberPointApplication - TipoArquivo
+JabberPointApplication *-- IFilePresentationFormat
+
+Enum TipoArquivo {
+    XML, JSON, HTML
+    + abstract IFilePresentationFormat obterTipoArquivo();
+}
+
+interface IFilePresentationFormat {
+    + Presentation load(String fileName);
+    + void save(Presentation presentation, String fileName);
+}
+
+class XMLFormat implements IFilePresentationFormat {
+    + Presentation load(String fileName);
+    + void save(Presentation presentation, String fileName);
+}
+
+class HTMLFormat implements IFilePresentationFormat {
+    + Presentation load(String fileName);
+    + void save(Presentation presentation, String fileName);
+}
+
+class JSONFormat {
+    + Presentation load(String fileName);
+    + void save(Presentation presentation, String fileName);
+}
+
+JSONFormat .|> IFilePresentationFormat
+
+@enduml
