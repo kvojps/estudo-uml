@@ -1,5 +1,5 @@
 @startuml slide item 
-    abstract class SlideItem{
+    class SlideItem{
         - int level = 0
         - String text
         - SlideItemType type

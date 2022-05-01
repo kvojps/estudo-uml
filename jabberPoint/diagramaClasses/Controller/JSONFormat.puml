@@ -1,0 +1,8 @@
+@startuml json format
+
+    class JSONFormat implements IFilePresentationFormat {
+        + Presentation load(String filename)
+        + void save(Presentation presentation, String filename)
+    }
+
+@enduml

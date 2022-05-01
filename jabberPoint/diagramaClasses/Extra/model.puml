@@ -1,0 +1,46 @@
+@startuml presentation, slide e slideItem
+
+class Presentation {
+    - String title
+    - ArrayList<Slide> slides = null
+    - int currenteSlideNumber
+
+    + Presentation Presentation()
+    + int getSlidesSize()
+    + void prevSlide()
+    + void nextSlide()
+    + Slide getCurrentSlide()
+    + Slide getSlide(int number)
+    + void add(Slide slide)
+    + void clear()
+    + void currentStatus()
+    + boolean isValid()
+}
+
+class Slide {
+    # String title
+    # LinkedList<SlideItem> items
+
+    + Slide Slide()
+    + Slide Slide(String title)
+    + void append(SlideItem anItem)
+    + void add(int level, SlideItem item)
+    + SlideItem getSlideItem(int number)
+    + int getItemsSize()
+}
+
+class SlideItem{
+    - int level = 0
+    - String text
+    - SlideItemType type
+    - byte[] media
+
+    + SlideItem SlideItem(int level)
+    + SlideItem SlideItem(int level, String text)
+    + SlideItem SlideItem(int level, String caption, byte[] image)
+}
+
+Presentation *- Slide
+Slide *- SlideItem
+
+@enduml
