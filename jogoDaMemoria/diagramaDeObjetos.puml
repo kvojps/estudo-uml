@@ -1,4 +1,4 @@
-@startuml objetos jogo da memoria
+@startuml diagrama de objetos jogo da memoria
 allowmixing
 'left to right direction
 

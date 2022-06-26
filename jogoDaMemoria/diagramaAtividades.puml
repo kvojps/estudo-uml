@@ -1,4 +1,4 @@
-@startuml atividades jogo da memoria
+@startuml diagrama de atividades jogo da memoria
 start
 :Inserir nome;
 :Estabelecer totalAcertos = 100;
