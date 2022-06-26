@@ -1,4 +1,4 @@
-@startuml sequence jogo da memoria
+@startuml diagrama de sequencia jogo da memoria
 actor Usuario
 
 Usuario -> InterfaceUsuario : iniciarJogo()
