@@ -1,4 +1,4 @@
-@startuml state
+@startuml diagrama de estados jogo da memoria
 
 state IniciandoJogo {
     state IniciandoJogo : entry/iniciarJogo()
