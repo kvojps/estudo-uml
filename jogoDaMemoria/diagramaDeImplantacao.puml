@@ -1,7 +1,7 @@
-@startuml implantacao sistema de tickets
+@startuml diagrama de implantacao jogo da memoria
 
-node InterfaceVendas as "Interface de vendas \n <<device>>" {
-[PaginaVendaTickets]
+node InterfaceJogo as "Tela do jogo \n <<device>>" {
+[PaginaJogo]
 }
 
 node ServidorFirewall as "Servidor de firewall \n <<device>>" {
@@ -9,20 +9,20 @@ node ServidorFirewall as "Servidor de firewall \n <<device>>" {
 }
 
 node ServidorComunicacao as "Servidor de comunicação \n <<device>>" {
-[ControladorRequisicoes]
+[ControladorJogadas]
 }
 
 node ServidorAplicacao as "Servidor de aplicação \n <<device>>" {
-[VendaTickets]
-[CadastroCliente]
-[GerenciadorLogin]
+[GerenciadorTabuleiro]
+[GerenciadorCartas]
+[GerenciadorPontuacao]
 }
 
 node ServidorBancoDados as "Servidor de banco de dados \n <<device>>"{
 [SGBD]
 }
 
-InterfaceVendas - ServidorFirewall : <TCP/IP>
+InterfaceJogo - ServidorFirewall : <TCP/IP>
 ServidorFirewall - ServidorComunicacao : <TCP/IP>
 ServidorComunicacao -- ServidorAplicacao : <TCP/IP>
 ServidorAplicacao -- ServidorBancoDados : <TCP/IP>
