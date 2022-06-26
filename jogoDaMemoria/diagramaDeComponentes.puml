@@ -1,4 +1,4 @@
-@startuml componentes jogo da memoria
+@startuml diagrama de componentes jogo da memoria
 
 package "Tela do jogo" as tela {
   [Seção jogo]
